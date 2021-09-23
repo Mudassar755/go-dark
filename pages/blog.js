@@ -105,7 +105,7 @@ const BlogHome = ({ blogPosts }) => {
 
               {blogPosts.map((post) => (
                 <Grid key={post.sys.id} item md={5} xs={12} className="postDiv">
-                  <Image
+                  <img
                     className="postImage"
                     src={`${post.fields.Thumbnail.fields.file.url}`}
                     width={600}
