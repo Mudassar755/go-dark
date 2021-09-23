@@ -94,7 +94,6 @@ const composePost = () => {
   };
 
   return (
-    // <Layout title="Contact">
     <>
     <Head>
         <title>Contact - GoDark</title>
@@ -267,28 +266,7 @@ const composePost = () => {
           <Footer />
         </Parallax>
       </div>
-{/* 
-      <div className="audio-player">
-        <Plyr
-          source={{
-            type: "audio",
-            sources: [
-              {
-                src: "/audio.mp3",
-                type: "audio/mp3",
-              },
-            ],
-          }}
-          options={{
-            controls: ["play", "mute", "volume"],
-            loop: { active: true },
-          }}
-          ref={plyr}
-        />
-      </div> */}
-      <MusicPlayer />
       </>
-    // </Layout>
   );
 };
 

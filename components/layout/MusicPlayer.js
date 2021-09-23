@@ -10,10 +10,10 @@ const MusicPlayer = () => {
         if (fullExperience) {
             plyr?.current?.plyr.play();
         }
-    }, [plyr, fullExperience]);
+    });
 
     return (
-        <div className="audio-player">
+        <div className="audio-player" style={{zIndex:"100"}}>
             <Plyr
                 source={{
                     type: "audio",

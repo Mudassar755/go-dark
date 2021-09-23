@@ -3,6 +3,7 @@ import "plyr-react/dist/plyr.css";
 import Link from "next/link";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
+import Head from "next/head";
 import Footer from "../../components/layout/Footer";
 import { motion } from "framer-motion";
 import Layout from "../../components/layout/Layout";
@@ -10,6 +11,7 @@ import Layout from "../../components/layout/Layout";
 //Contentful Blog Post path
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import MusicPlayer from "../../components/layout/MusicPlayer";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -57,7 +59,13 @@ const SinglePost = ({ blogPosts }) => {
     slug,
   } = blogPosts.fields;
   return (
-    <Layout title={`Go-Dark:${title}`}>
+    // <Layout title={`Go-Dark:${title}`}>
+    <>
+    <Head>
+        <title>Go-Dark - {title}</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -106,7 +114,8 @@ const SinglePost = ({ blogPosts }) => {
           </div>
         </div>
       </div>
-    </Layout>
+      {/* <MusicPlayer /> */}
+    </>
   );
 };
 

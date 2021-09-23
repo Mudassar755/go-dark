@@ -10,6 +10,7 @@ import Plyr from "plyr-react";
 import ReactAudioPlayer from "react-audio-player";
 import audio from "../../utils/Audio";
 import Loader from "./Loader";
+import MusicPlayer from "./MusicPlayer";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,11 @@ const Layout = ({ children }) => {
 
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-          {!loading && <Header />}
+
+          {!loading && (<>
+          <Header />
+          <MusicPlayer />
+          </>)}
           {children}
           {/* <div
             style={{ marginTop: "14rem", zIndex: "999", background: "red" }}

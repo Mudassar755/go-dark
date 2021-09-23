@@ -37,15 +37,8 @@ const Home = () => {
   const onMouseLeave = (e) => {
     document.getElementById("earth_background-text").style.display = "none";
   };
-  // here
-  useEffect(() => {
-    if (fullExperience) {
-      plyr?.current?.plyr.play();
-    }
-  }, [plyr, fullExperience]);
 
   return (
-    // <Layout title="Home">
     <>
      <Head>
         <title>Home - GoDark</title>
@@ -128,26 +121,6 @@ const Home = () => {
 
         <Footer />
       </Parallax>
-
-      {/* <div className="audio-player">
-        <Plyr
-          source={{
-            type: "audio",
-            sources: [
-              {
-                src: "/audio.mp3",
-                type: "audio/mp3",
-              },
-            ],
-          }}
-          options={{
-            controls: ["play", "mute", "volume"],
-            loop: { active: true },
-          }}
-          ref={plyr}
-        />
-      </div> */}
-      <MusicPlayer />
     </div>
      )}
     </>);
