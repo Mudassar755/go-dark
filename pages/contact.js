@@ -16,6 +16,7 @@ import GoogleMap from "../components/shared/GoogleMap";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -146,7 +147,7 @@ const Contact = () => {
             </Grid>
           </div>
         </Parallax>
-      <div className="audio-player">
+      {/* <div className="audio-player">
         <Plyr
         source={{
           type: "audio",
@@ -163,7 +164,8 @@ const Contact = () => {
         }}
         ref={plyr}
         />
-      </div>
+      </div> */}
+      <MusicPlayer />
       </div>
       </>
   );

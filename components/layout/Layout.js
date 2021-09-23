@@ -14,16 +14,6 @@ import Loader from "./Loader";
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.settings.loading)
-  // const loading = store.getState().settings.loading;
-
-  // console.log("stateee", state)
-  console.log("loading", loading)
-  let width;
-  if (window.innerWidth > 570) {
-    width = 520;
-  } else {
-    width = window.innerWidth - 5;
-  }
 
   const experience = useRef(null);
 
@@ -38,7 +28,7 @@ const Layout = ({ children }) => {
 
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-          <Header />
+          {!loading && <Header />}
           {children}
           {/* <div
             style={{ marginTop: "14rem", zIndex: "999", background: "red" }}

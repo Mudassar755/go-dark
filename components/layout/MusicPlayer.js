@@ -1,21 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import Plyr from "plyr-react";
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
 
-
-const MusicPlayer = ({children}) => {
+const MusicPlayer = () => {
 
     const { fullExperience } = useSelector((state) => state.settings);
     const plyr = useRef(null);
-// const {} = useRouter()
-    // useEffect(() => {
-    //     if (fullExperience) {
-    //         plyr?.current?.plyr.play();
-    //     }
-    // }, [plyr, fullExperience]);
- 
-    // ref={(ref) => ref && refMap.set(item, ref)}
+    useEffect(() => {
+        if (fullExperience) {
+            plyr?.current?.plyr.play();
+        }
+    }, [plyr, fullExperience]);
+
     return (
         <div className="audio-player">
             <Plyr

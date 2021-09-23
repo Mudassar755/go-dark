@@ -11,6 +11,7 @@ import ReactTypingEffect from "react-typing-effect";
 import { motion } from "framer-motion";
 
 import Link from "next/link";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 const url = (name, wrap = false) =>
   `${wrap ? "url(" : ""
@@ -177,7 +178,7 @@ const Pricing = () => {
             </div>
           </div>
         </Parallax>
-        <div className="audio-player">
+        {/* <div className="audio-player">
           <Plyr
             source={{
               type: "audio",
@@ -194,7 +195,8 @@ const Pricing = () => {
             }}
             ref={plyr}
           />
-        </div>
+        </div> */}
+        <MusicPlayer />
       </div>
     </>
   );

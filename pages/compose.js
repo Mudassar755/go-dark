@@ -16,6 +16,7 @@ import GoogleMap from "../components/shared/GoogleMap";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -266,7 +267,7 @@ const composePost = () => {
           <Footer />
         </Parallax>
       </div>
-
+{/* 
       <div className="audio-player">
         <Plyr
           source={{
@@ -284,7 +285,8 @@ const composePost = () => {
           }}
           ref={plyr}
         />
-      </div>
+      </div> */}
+      <MusicPlayer />
       </>
     // </Layout>
   );

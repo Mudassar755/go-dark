@@ -32,7 +32,6 @@ const Header = () => {
     onRest: () => set(!flip),
   });
 
-  console.log("here");
   return (
     <div>
       <div className="headerAll">

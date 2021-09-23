@@ -14,6 +14,7 @@ import Terminal from "../components/shared/Terminal";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Loader from "../components/layout/Loader";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 const url = (name, wrap = false) =>
   `${
@@ -128,7 +129,7 @@ const Home = () => {
         <Footer />
       </Parallax>
 
-      <div className="audio-player">
+      {/* <div className="audio-player">
         <Plyr
           source={{
             type: "audio",
@@ -145,7 +146,8 @@ const Home = () => {
           }}
           ref={plyr}
         />
-      </div>
+      </div> */}
+      <MusicPlayer />
     </div>
      )}
     </>);

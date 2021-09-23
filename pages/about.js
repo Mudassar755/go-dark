@@ -11,6 +11,7 @@ import Image from "next/image";
 import ReactTypingEffect from "react-typing-effect";
 import Footer from "../components/layout/Footer";
 import { motion } from "framer-motion";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 const url = (name, wrap = false) =>
   `${
@@ -146,7 +147,7 @@ const About = () => {
             </Grid>
           </Grid>
         </div>
-      <div className="audio-player">
+      {/* <div className="audio-player">
         <Plyr
         source={{
           type: "audio",
@@ -163,7 +164,8 @@ const About = () => {
         }}
         ref={plyr}
         />
-      </div>
+      </div> */}
+      <MusicPlayer />
       </div>
       </>
   );

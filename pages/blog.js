@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 //Contentful Blog Post
 import { createClient } from "contentful";
+import MusicPlayer from "../components/layout/MusicPlayer";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -128,7 +129,7 @@ const BlogHome = ({ blogPosts, posts }) => {
                         className="postReadMoreBtn"
                         href={`/posts/${post.fields.slug}`}
                       >
-                        Read More
+                        <a>Read More</a>
                       </Link>
                     </div>
                     <div id="postAuthorDiv">
@@ -141,7 +142,7 @@ const BlogHome = ({ blogPosts, posts }) => {
           </div>
           <Footer />
         </Parallax>
-        <div className="audio-player">
+        {/* <div className="audio-player">
         <Plyr
         source={{
           type: "audio",
@@ -158,7 +159,8 @@ const BlogHome = ({ blogPosts, posts }) => {
         }}
         ref={plyr}
         />
-      </div>
+      </div> */}
+      <MusicPlayer />
       </div>
     </>
   );
