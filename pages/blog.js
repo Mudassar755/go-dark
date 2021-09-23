@@ -107,7 +107,7 @@ const BlogHome = ({ blogPosts }) => {
                 <Grid key={post.sys.id} item md={5} xs={12} className="postDiv">
                   <Image
                     className="postImage"
-                    src={`https://${post.fields.Thumbnail.fields.file.url}`}
+                    src={`${post.fields.Thumbnail.fields.file.url}`}
                     width={600}
                     height={400}
                   />
