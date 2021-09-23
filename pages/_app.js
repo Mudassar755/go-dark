@@ -12,9 +12,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        {/* <Layout> */}
+        <Layout>
         <Component {...pageProps} />
-        {/* </Layout> */}
+        </Layout>
       </PersistGate>
     </Provider>
   );

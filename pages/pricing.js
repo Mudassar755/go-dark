@@ -6,16 +6,15 @@ import { useSelector } from "react-redux";
 import "plyr-react/dist/plyr.css";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
+import Head from "next/head";
 import ReactTypingEffect from "react-typing-effect";
 import { motion } from "framer-motion";
 
 import Link from "next/link";
 
 const url = (name, wrap = false) =>
-  `${
-    wrap ? "url(" : ""
-  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-    wrap ? ")" : ""
+  `${wrap ? "url(" : ""
+  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ")" : ""
   }`;
 
 const Pricing = () => {
@@ -32,14 +31,13 @@ const Pricing = () => {
   };
   // here
 
-  useEffect(() => {
-    if (fullExperience) {
-      plyr?.current?.plyr.play();
-    }
-  }, [plyr, fullExperience]);
-
   return (
-    <Layout title="Pricing">
+    <>
+      <Head>
+        <title>Pricing - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -179,26 +177,26 @@ const Pricing = () => {
             </div>
           </div>
         </Parallax>
+        <div className="audio-player">
+          <Plyr
+            source={{
+              type: "audio",
+              sources: [
+                {
+                  src: "/audio.mp3",
+                  type: "audio/mp3",
+                },
+              ],
+            }}
+            options={{
+              controls: ["play", "mute", "volume"],
+              loop: { active: true },
+            }}
+            ref={plyr}
+          />
+        </div>
       </div>
-      {/* <div className="audio-player">
-        <Plyr
-          source={{
-            type: "audio",
-            sources: [
-              {
-                src: "/audio.mp3",
-                type: "audio/mp3",
-              },
-            ],
-          }}
-          options={{
-            controls: ["play", "mute", "volume"],
-            loop: { active: true },
-          }}
-          ref={plyr}
-        />
-      </div> */}
-    </Layout>
+    </>
   );
 };
 

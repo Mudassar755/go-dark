@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import "plyr-react/dist/plyr.css";
 import Loading from "../components/layout/Loading";
 import Link from "next/link";
+import Head from "next/head";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
 import Footer from "../components/layout/Footer";
@@ -92,7 +93,13 @@ const composePost = () => {
   };
 
   return (
-    <Layout title="Contact">
+    // <Layout title="Contact">
+    <>
+    <Head>
+        <title>Contact - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -278,7 +285,8 @@ const composePost = () => {
           ref={plyr}
         />
       </div>
-    </Layout>
+      </>
+    // </Layout>
   );
 };
 

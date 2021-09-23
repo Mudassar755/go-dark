@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import "plyr-react/dist/plyr.css";
 import Link from "next/link";
+import Head from "next/head";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
 import ReactTypingEffect from "react-typing-effect";
@@ -23,14 +24,13 @@ const About = () => {
   const parallax = useRef(null);
   const plyr = useRef(null);
 
-  useEffect(() => {
-    if (fullExperience) {
-      plyr?.current?.plyr.play();
-    }
-  }, [plyr, fullExperience]);
-
   return (
-    <Layout title="About">
+    <>
+    <Head>
+        <title>About - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{
@@ -146,26 +146,26 @@ const About = () => {
             </Grid>
           </Grid>
         </div>
-      </div>
-      {/* <div className="audio-player">
+      <div className="audio-player">
         <Plyr
-          source={{
-            type: "audio",
-            sources: [
-              {
-                src: "/audio.mp3",
-                type: "audio/mp3",
-              },
-            ],
-          }}
-          options={{
-            controls: ["play", "mute", "volume"],
-            loop: { active: true },
-          }}
-          ref={plyr}
+        source={{
+          type: "audio",
+          sources: [
+            {
+              src: "/audio.mp3",
+              type: "audio/mp3",
+            },
+          ],
+        }}
+        options={{
+          controls: ["play", "mute", "volume"],
+          loop: { active: true },
+        }}
+        ref={plyr}
         />
-      </div> */}
-    </Layout>
+      </div>
+      </div>
+      </>
   );
 };
 

@@ -12,6 +12,8 @@ import { Grid } from "@material-ui/core";
 import Footer from "../components/layout/Footer";
 import Terminal from "../components/shared/Terminal";
 import { motion } from "framer-motion";
+import Head from "next/head";
+import Loader from "../components/layout/Loader";
 
 const url = (name, wrap = false) =>
   `${
@@ -22,6 +24,7 @@ const url = (name, wrap = false) =>
 
 const Home = () => {
   const { fullExperience } = useSelector((state) => state.settings);
+  const loading = useSelector(state => state.settings.loading)
   const parallax = useRef(null);
   const plyr = useRef(null);
   const router = useRouter();
@@ -34,7 +37,6 @@ const Home = () => {
     document.getElementById("earth_background-text").style.display = "none";
   };
   // here
-
   useEffect(() => {
     if (fullExperience) {
       plyr?.current?.plyr.play();
@@ -42,7 +44,14 @@ const Home = () => {
   }, [plyr, fullExperience]);
 
   return (
-    <Layout title="Home">
+    // <Layout title="Home">
+    <>
+     <Head>
+        <title>Home - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+     {loading ? <Loader /> : (
     <div
       className="home"
       style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -137,10 +146,9 @@ const Home = () => {
           ref={plyr}
         />
       </div>
-
     </div>
-      </Layout>
-  );
+     )}
+    </>);
 };
 
 export default Home;

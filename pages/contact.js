@@ -8,6 +8,7 @@ import Loading from "../components/layout/Loading";
 import Link from "next/link";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
+import Head from "next/head";
 import Footer from "../components/layout/Footer";
 import { motion } from "framer-motion";
 import GoogleMapReact from "google-map-react";
@@ -43,7 +44,12 @@ const Contact = () => {
   const classNamees = useStyles();
 
   return (
-    <Layout title="Contact">
+    <>
+    <Head>
+        <title>Contact - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -140,26 +146,26 @@ const Contact = () => {
             </Grid>
           </div>
         </Parallax>
-      </div>
-      {/* <div className="audio-player">
+      <div className="audio-player">
         <Plyr
-          source={{
-            type: "audio",
-            sources: [
-              {
-                src: "/audio.mp3",
-                type: "audio/mp3",
-              },
-            ],
-          }}
-          options={{
-            controls: ["play", "mute", "volume"],
-            loop: { active: true },
-          }}
-          ref={plyr}
+        source={{
+          type: "audio",
+          sources: [
+            {
+              src: "/audio.mp3",
+              type: "audio/mp3",
+            },
+          ],
+        }}
+        options={{
+          controls: ["play", "mute", "volume"],
+          loop: { active: true },
+        }}
+        ref={plyr}
         />
-      </div> */}
-    </Layout>
+      </div>
+      </div>
+      </>
   );
 };
 

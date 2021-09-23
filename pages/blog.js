@@ -7,6 +7,7 @@ import "plyr-react/dist/plyr.css";
 import Link from "next/link";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
+import Head from "next/head";
 import Footer from "../components/layout/Footer";
 import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,12 +20,12 @@ export async function getStaticProps() {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
-  console.log("client", client)
   const posts = await client.getEntries({ content_type: "blogPosts" });
 
   return {
     props: {
       blogPosts: posts.items,
+      posts: posts
     },
   };
 }
@@ -42,14 +43,11 @@ const useStyles = makeStyles((theme) => ({
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const url = (name, wrap = false) =>
-  `${
-    wrap ? "url(" : ""
-  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-    wrap ? ")" : ""
+  `${wrap ? "url(" : ""
+  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ")" : ""
   }`;
 
-const BlogHome = ({ blogPosts }) => {
-  console.log(blogPosts);
+const BlogHome = ({ blogPosts, posts }) => {
 
   const { fullExperience } = useSelector((state) => state.settings);
   const parallax = useRef(null);
@@ -58,7 +56,12 @@ const BlogHome = ({ blogPosts }) => {
   const classNamees = useStyles();
 
   return (
-    // <Layout title="Blog">
+    <>
+      <Head>
+        <title>Blog - GoDark</title>
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -108,8 +111,8 @@ const BlogHome = ({ blogPosts }) => {
                   <img
                     className="postImage"
                     src={`${post.fields.Thumbnail.fields.file.url}`}
-                    width={600}
-                    height={400}
+                    style={{ width: "100%" }}
+
                   />
                   <div className="postTextDiv">
                     <div className="postCatDiv">
@@ -138,7 +141,7 @@ const BlogHome = ({ blogPosts }) => {
           </div>
           <Footer />
         </Parallax>
-      {/* <div className="audio-player">
+        <div className="audio-player">
         <Plyr
         source={{
           type: "audio",
@@ -155,9 +158,9 @@ const BlogHome = ({ blogPosts }) => {
         }}
         ref={plyr}
         />
-      </div> */}
       </div>
-    // </Layout>
+      </div>
+    </>
   );
 };
 

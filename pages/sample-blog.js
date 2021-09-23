@@ -34,7 +34,8 @@ const Blog = () => {
   }, [plyr, fullExperience]);
 
   return (
-    <Layout title="Id">
+    // <Layout title="Id">
+    <>
       <div
         className="home"
         style={{ width: "100%", height: "100%", background: "#020205" }}
@@ -406,7 +407,8 @@ const Blog = () => {
           ref={plyr}
         />
       </div>
-    </Layout>
+      </>
+    // </Layout>
   );
 };
 
